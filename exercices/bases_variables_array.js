@@ -5,8 +5,6 @@ function variable_array(){
 
 }
 
-
-
 function variable_array_index_1(){
 
     var my_array = ["A","B","C","D"]
@@ -67,6 +65,8 @@ function variable_array_push(){
 
     var my_array = ["A","B","C","D"]
     my_array.push("E")
+    my_array.push("F")
+    MessageBox.information(my_array)
 
     var instructions_recette_de_quiche = ["melanger_oeufs","ajouter_fromage"]
     // completer la recette de la quiche et afficher le resultat 
