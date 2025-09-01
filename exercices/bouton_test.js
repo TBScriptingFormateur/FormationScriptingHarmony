@@ -1,3 +1,3 @@
 function myfunc(){
-        MessageBox.information("Yeeeah") 
+        MessageBox.information("PROUT") 
 }
