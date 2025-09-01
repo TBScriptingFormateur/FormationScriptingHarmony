@@ -1,3 +1,3 @@
 function myfunc(){
-        MessageBox.information("my nooby first script") 
+        MessageBox.information("my nooby first script_tralalala") 
 }
