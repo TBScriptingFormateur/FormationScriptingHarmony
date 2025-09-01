@@ -6,4 +6,4 @@ function myfunc(){
         MessageBox.information(texte + " " + notice)
         }
 
-mufunc()
+myfunc()
