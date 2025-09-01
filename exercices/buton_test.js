@@ -1,4 +1,4 @@
 //Function to say yow!
-function myfuncA(){
-    MessageBox.information("Yow !")
+function myfunc(){
+  MessageBox.information("Yow !")
 }
