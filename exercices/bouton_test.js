@@ -1,4 +1,4 @@
-function myfunc(){
+function myButton(){
         MessageBox.information("coucou les hackers !") 
 }
 
