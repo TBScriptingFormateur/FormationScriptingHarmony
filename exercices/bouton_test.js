@@ -1,3 +1,4 @@
-function myfunc(){
-        MessageBox.information("PROUT") 
-}
+function myfunc(){ 
+    MessageBox.information("BONJOUR")
+    MessageBox.information("BONJOUR")
+}       
