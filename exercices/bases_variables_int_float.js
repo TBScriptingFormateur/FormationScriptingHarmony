@@ -9,6 +9,7 @@ function variable_int(){
 
 }
 
+
 function variable_int_operators_1(){
 
     var my_var = 1 + 2
@@ -18,7 +19,6 @@ function variable_int_operators_1(){
     // declarez deux variables , stocker le resultat de leur addition dans une troisième variable et afficher son contenu 
 
 }
-
 
 
 function variable_int_operators_2(){
