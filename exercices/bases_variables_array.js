@@ -1,17 +1,27 @@
 function variable_array(){
-
-    var my_array = ["A","B","C","D"]
-    MessageBox.information(my_array)
+    var arraychiffres = [0,1,2,3,4,5,6]
+    var my_array = ["A","B","C","D","g"]
+    MessageBox.information(arraychiffres)
 
 }
 
 function variable_array_index_1(){
 
-    var my_array = ["A","B","C","D"]
-    MessageBox.information(my_array[0])
-    MessageBox.information(my_array[1])
     
     var tortues_ninja = ["Leonardo","Raphael","Donatello","Michelangelo "]
+    var numero = 0
+
+    MessageBox.information(tortues_ninja[numero])
+    numero += 1    
+    MessageBox.information(tortues_ninja[numero])
+    numero += 1    
+    MessageBox.information(tortues_ninja[numero])
+    numero += 1    
+    MessageBox.information(tortues_ninja[numero])
+    numero += 1    
+    MessageBox.information(tortues_ninja[numero])
+    numero += 1
+
     // afficher la tortue Donatello à l'aide de l'index 
 
 }
@@ -20,7 +30,15 @@ function variable_array_index_2(){
 
     var numbers = [1,2,3,4,5]
     
-    // combinez des éléments de l'array number pour obtenir le nombre 10
+    var resultat = numbers[6] * numbers[1]
+
+        MessageBox.information(resultat)
+        
+        // combinez des éléments de l'array number pour obtenir le nombre 10
+        
+        resultat = resultat * resultat
+
+        MessageBox.information(resultat)
     // combinez des éléments de l'array number pour obtenir le nombre 100
 
     var niveau = 2
