@@ -1,17 +1,40 @@
 function variable_int(){
 
-    var age = 29
+    const A = 4 
+const B = 2
 
-    MessageBox.information(age)
+var result = A + B
+MessageBox.information(result)
+// affiche 6
 
-    // declater une nouvelle variable et afficher son contenu deux fois 
-    // declater une nouvelle variable changer sa valeur et afficher son contenu 
+var result = A - B
+MessageBox.information(result)
+// affiche 2
+
+var result = A * B
+MessageBox.information(result)
+// affiche 8
+
+var result = A / B
+MessageBox.information(result)
+// affiche 2
+
+var result = A % B
+MessageBox.information(result)
+// affiche 0
+
+// comme en math on peut également utiliser des parenthèses :
+var result = ( A + B ) * B 
+MessageBox.information(result)
+// affiche 12
 
 }
 
 function variable_int_operators_1(){
 
-    var my_var = 1 + 2
+    var A = 2
+    var B = 5
+    my_var = B / A
 
     MessageBox.information(my_var)
 
