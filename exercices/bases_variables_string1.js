@@ -4,7 +4,7 @@ function direBonjour(){
     
         function addHeart(){
             MessageBox.information(bonjour+ " " + coeur)
-            coeur += "💖💖💖💖💖"
+            coeur += "💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖💖"
         }
         addHeart()
         addHeart()
