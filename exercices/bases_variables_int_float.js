@@ -1,13 +1,13 @@
 function variable_int(){
 
-    var my_var = 1
-
-    MessageBox.information(my_var)
-
-    // declater une nouvelle variable et afficher son contenu deux fois 
-    // declater une nouvelle variable changer sa valeur et afficher son contenu 
+    var FOLDER = "mon/dossier"
+    FOLDER = "984"
+    MessageBox.information(FOLDER)
+    
 
 }
+
+
 
 
 function variable_int_operators_1(){
