@@ -1,3 +1,6 @@
-function myfunc(){
-        MessageBox.information("my nooby first script_tralalala") 
+function myfunc(pouet){
+    var message= ("my nooby first script_tralalala")
+MessageBox.information (message)
+
+
 }
