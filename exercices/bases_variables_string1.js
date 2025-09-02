@@ -1,27 +1,15 @@
 function dire_bonjour(){
 
-    var age = 0
-    age +=1
-
-    var addonLove = emot + 1 // "❤️‍🔥✨✨✨✨✨✨✨❤️‍🔥1"
-
-    MessageBox.information (addonLove) 
-    addonLove += emot 
-
-    MessageBox.information (addonLove) 
-    addonLove += emot 
-
-    MessageBox.information (addonLove) 
-    addonLove += emot 
-
-    MessageBox.information (addonLove) 
-    addonLove += emot 
-
-    MessageBox.information (addonLove)
-    
-// affiche le message de bonjour
+    var phrase = ' un personne dit "bonjour"  '  
+    //MessageBox.information(phrase)
+    //phrase = " un personne dit 'bonjour'  "  
+    MessageBox.information(phrase)    
+    phrase = " un personne dit \" bonjour \"  "  
+    MessageBox.information(phrase)    
+    phrase =  "C:\\Users\\LE SOCLE\\Documents\\formation_scripting\\variables\\scene.elementTable "
+    MessageBox.information(phrase)
 }
-
+// 
 
 function incendie(){
 
@@ -46,17 +34,18 @@ function incendie(){
 
     feu += feu
     MessageBox.information(feu)
+
     feu += feu
     MessageBox.information(feu)
+
     feu += feu
     MessageBox.information(feu)
+
     feu += feu
     MessageBox.information(feu)
     
     feu += feu
     MessageBox.information(feu)
-
-
 
 
 }

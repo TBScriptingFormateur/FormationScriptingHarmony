@@ -1,6 +1,6 @@
 function variable_array(){
 
-    var my_array = ["A","B","C","D"]
+    var my_array = [1,2,3,4]
     MessageBox.information(my_array)
 
 }
@@ -12,6 +12,19 @@ function variable_array_index_1(){
     MessageBox.information(my_array[1])
     
     var tortues_ninja = ["Leonardo","Raphael","Donatello","Michelangelo "]
+
+    var numero = 0
+    MessageBox.information(tortues_ninja[numero])
+
+    numero+=1
+    MessageBox.information(tortues_ninja[numero])
+
+    numero+=1
+    MessageBox.information(tortues_ninja[numero])
+
+    numero+=1
+    MessageBox.information(tortues_ninja[numero])
+
     // afficher la tortue Donatello à l'aide de l'index 
 
 }
@@ -19,6 +32,9 @@ function variable_array_index_1(){
 function variable_array_index_2(){
 
     var numbers = [1,2,3,4,5]
+    var resultat = 
+
+    MessageBox.information()
     
     // combinez des éléments de l'array number pour obtenir le nombre 10
     // combinez des éléments de l'array number pour obtenir le nombre 100
