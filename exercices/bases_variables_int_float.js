@@ -1,7 +1,7 @@
 function variable_int(){
 
     var my_var = 1
-    var coucou = 37
+    var coucou = 30
 
     MessageBox.information(coucou)
 
