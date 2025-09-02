@@ -1,9 +1,33 @@
 function variable_int(){
 
-    var FOLDER = "mon/dossier"
-    FOLDER = "984"
-    MessageBox.information(FOLDER)
-    
+const A = 4 
+const B = 2
+
+var result = A + B
+MessageBox.information(result)
+// affiche 6
+
+var result = A - B
+MessageBox.information(result)
+// affiche 2
+
+var result = A * B
+MessageBox.information(result)
+// affiche 8
+
+var result = A / B
+MessageBox.information(result)
+// affiche 2
+
+var result = A % B
+MessageBox.information(result)
+// affiche 0
+
+// comme en math on peut également utiliser des parenthèses :
+var result = ( A + B ) * B 
+MessageBox.information(result)
+// affiche 12
+
 
 }
 
