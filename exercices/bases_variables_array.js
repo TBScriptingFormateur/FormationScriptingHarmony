@@ -30,8 +30,8 @@ function variable_array_index_2(){
 
     var numbers = [1,2,3,4,5]
     // combinez des éléments de l'array number pour obtenir le nombre 10
-    var resultat = numbers[6] * numbers[1]
-    
+    var resultat = numbers[4] * numbers[1]
+
     MessageBox.information(resultat)
         
     // combinez des éléments de l'array number pour obtenir le nombre 100
@@ -55,15 +55,19 @@ function variable_array_index_of(){
 
     var my_array = ["A","B","C","D"]
     MessageBox.information(my_array.indexOf("A"))
-
+    
     var tortues_ninja = ["Leonardo","Raphael","Donatello","Michelangelo "]
-
+    
     // afficher l'index de Raphael 
-
+    MessageBox.information(tortues_ninja.indexOf("Raphael"))
+    
     var nom_du_niveau = "sous_sol"
     var chateau = ["douves","cave","sous_sol","rdc","etage_1","etage_2","etage_3","etage_4","etage_5","sommet_du_donjon"]
-
+    var nb_detage = chateau.length
+    var dernier_etage = chateau[nb_detage - 1]
     // afficher le niveau actuel dans le chateau
+    MessageBox.information(nom_du_niveau.indexOf("sous_sol"))
+    MessageBox.information(dernier_etage)
 
 
 }
