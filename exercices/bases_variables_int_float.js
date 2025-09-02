@@ -69,7 +69,8 @@ function variable_float(){
     var longeur_barbe_de_bombur = 5
 
     var longueurTotale = longeur_barbe_de_fili + longeur_barbe_de_balin + longeur_barbe_de_thorin + longeur_barbe_de_kili + longeur_barbe_de_bifur + longeur_barbe_de_bombur
-        MessageBox.information(longueurTotale/6)
+    var nombreNains= 6
+        MessageBox.information(longueurTotale/nombreNains)
     // calculez la longueur moyenne de la barbe des nains présents dans Le Hobbit
 
 
