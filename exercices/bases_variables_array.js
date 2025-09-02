@@ -29,23 +29,25 @@ function variable_array_index_1(){
 function variable_array_index_2(){
 
     var numbers = [1,2,3,4,5]
-    
+    // combinez des éléments de l'array number pour obtenir le nombre 10
     var resultat = numbers[6] * numbers[1]
-
-        MessageBox.information(resultat)
+    
+    MessageBox.information(resultat)
         
-        // combinez des éléments de l'array number pour obtenir le nombre 10
-        
-        resultat = resultat * resultat
-
-        MessageBox.information(resultat)
     // combinez des éléments de l'array number pour obtenir le nombre 100
+    resultat = resultat * resultat
 
+    MessageBox.information(resultat)
+    
     var niveau = 2
     var chateau = ["douves","cave","sous_sol","rdc","etage_1","etage_2","etage_3","etage_4","etage_5","sommet_du_donjon"]
-
+    
     // quelle est la valeur de chateau[niveau] ? 
+    MessageBox.information(chateau[niveau])
+    
     // quelle valeur faut il assigner à 'niveau' pour afficher 'sommet du donjon' ? 
+    niveau = 9
+    MessageBox.information(chateau[niveau])
 
 }
 
