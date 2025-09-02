@@ -32,7 +32,17 @@ function variable_array_index_1(){
 function variable_array_index_2(){
 
     var numbers = [1,2,3,4,5]
+<<<<<<< Updated upstream
     var resultat = 
+=======
+    // combinez des éléments de l'array number pour obtenir le nombre 10
+    var resultat = numbers[4] * numbers[1]
+    
+    MessageBox.information(resultat)
+        
+    // combinez des éléments de l'array number pour obtenir le nombre 100
+    resultat = resultat * resultat
+>>>>>>> Stashed changes
 
     MessageBox.information()
     
@@ -69,23 +79,22 @@ function variable_array_length(){
 
     var my_array = ["A","B","C","D"]
     MessageBox.information(my_array.length)
-
+    
     var chateau = ["douves","cave","sous_sol","rdc","etage_1","etage_2","etage_3","etage_4","etage_5","sommet_du_donjon"]
     // afficher le nombre de niveau 
     // afficher le dernier niveau du chateau en utilisant length
-
+    
 }
 
 
 function variable_array_push(){
+    
+    var list = ["phrase 1","phrase 2","phrase 3","d"]
 
-    var my_array = ["A","B","C","D"]
-    my_array.push("E")
-    my_array.push("F")
-    MessageBox.information(my_array)
+    var mots = list.join("\n")
 
-    var instructions_recette_de_quiche = ["melanger_oeufs","ajouter_fromage"]
-    // completer la recette de la quiche et afficher le resultat 
+    MessageBox.information(mots)
+
 
 }
 

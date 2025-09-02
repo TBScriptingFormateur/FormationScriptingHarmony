@@ -1,0 +1,5 @@
+function string_2(){
+
+
+    
+}
