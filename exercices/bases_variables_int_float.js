@@ -89,14 +89,15 @@ function variable_float(){
     var longeur_barbe_de_kili = 5
     var longeur_barbe_de_bifur = 45
     var longeur_barbe_de_bombur = 5
-    var nombre_de_barbu = 6
-    
-    var longueur_moyenne_barbe = (longeur_barbe_de_fili 
+    var longeur_barbe_totale = longeur_barbe_de_fili 
         + longeur_barbe_de_balin 
         + longeur_barbe_de_thorin 
         + longeur_barbe_de_kili 
         + longeur_barbe_de_bifur 
-        +longeur_barbe_de_bombur)
+        +longeur_barbe_de_bombur
+    var nombre_de_barbu = 6
+    
+    var longueur_moyenne_barbe = longeur_barbe_totale
         /nombre_de_barbu
     
     MessageBox.information(longueur_moyenne_barbe)
