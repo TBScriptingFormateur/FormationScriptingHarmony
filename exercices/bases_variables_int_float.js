@@ -1,9 +1,8 @@
 function variable_int(){
 
-    var my_var = 1
     var coucou = 30
-
-
+    var coucou = julia
+    var my_var = 1
     MessageBox.information(coucou + my_var)
 
     // declater une nouvelle variable et afficher son contenu deux fois 
