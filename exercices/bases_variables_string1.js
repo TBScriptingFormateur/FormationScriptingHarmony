@@ -1,20 +1,25 @@
 function direBonjour(){
-    var bonjour = "Bonjour "
-    var feu = "🔥"
-    MessageBox.information(bonjour+ " " + feu)
+    var bonjour = "Le script c'est rigolo (pour l'instant) 🫶 "
+    var coeur = "💖"
+    MessageBox.information(bonjour+ " " + coeur)
 
-    feu += "🔥"
+    coeur += "💖"
 
-    MessageBox.information(bonjour+ " " + feu)
-    feu += "🔥"
+        MessageBox.information(bonjour+ " " + coeur)
+    coeur += "💖"
 
-         MessageBox.information(bonjour+ " " + feu)
-     feu += "🔥"
+        MessageBox.information(bonjour+ " " + coeur)
+     coeur += "💖"
 
-         MessageBox.information(bonjour+ " " + feu)
-    feu += "🔥"
+        MessageBox.information(bonjour+ " " + coeur)
+    coeur += "💖"
 
-         MessageBox.information(bonjour+ " " + feu)
-    feu += "🔥"
+         MessageBox.information(bonjour+ " " + coeur)
+    coeur += "💖"
+
+        MessageBox.information(bonjour+ " " + coeur)
+    coeur += "💞"
+
+        MessageBox.information(bonjour+ " " + coeur)
      
 }
