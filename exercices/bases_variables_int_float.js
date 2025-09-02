@@ -1,17 +1,18 @@
 function variable_int(){
-
-    var my_var = 1
-
+    
+    const my_var = 30
+    var A = my_var * 1/5
     MessageBox.information(my_var)
-
+    MessageBox.information(A)
     // declater une nouvelle variable et afficher son contenu deux fois 
     // declater une nouvelle variable changer sa valeur et afficher son contenu 
 
 }
 
+
 function variable_int_operators_1(){
 
-    var my_var = 1 + 2
+    var my_var = 1 + 3 
 
     MessageBox.information(my_var)
 
@@ -31,9 +32,11 @@ function variable_int_operators_2(){
 
     var nb_secondes_dans_une_minutes = 60
     var nb_minutes_dans_une_heure = 60
-    var nb_heure_par_jour = 60
+    var nb_heure_par_jour = 24
 
-    var nb_secondes_dans_un_jour = 0
+    var nb_secondes_dans_un_jour = nb_heure_par_jour * nb_minutes_dans_une_heure *nb_secondes_dans_une_minutes
+
+    MessageBox.information (nb_secondes_dans_un_jour)
 
     // calculer puis afficher la dernière variable 
 
@@ -46,6 +49,8 @@ function variable_int_operators_3(){
     var degats_boule_de_feu = -150
     var potion_de_soin = +300
     var points_de_vie_de_base = 30
+    var point_de_vie_finaux = degats_cone_de_glace + degats_boule_de_feu + potion_de_soin + points_de_vie_de_base
+    MessageBox.information("Tes points de vie finaux sont: " + point_de_vie_finaux)
 
     // calculer la variable "point_de_vie_finaux" du hero après les deux attaques et la potion de soin 
 

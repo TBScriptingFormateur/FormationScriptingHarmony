@@ -1,4 +1,5 @@
 //Function to say yow!
 function myfunc(){
-  MessageBox.information("Yow !")
+  const messages = getText("Write an input")
+  MessageBox.information("Hello" + messages)
 }

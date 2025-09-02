@@ -8,11 +8,14 @@ function saySomething(){
 function flame(){
 
     var message = "Bonjour"
-    message += "🔥"
+    var flame = "🔥"
+
     for (i = 0; i < 5; i++ ){
 
         MessageBox.information(message)
-        message += "🔥"
+        message += flame
+        message += flame
+        
 
     }
     
