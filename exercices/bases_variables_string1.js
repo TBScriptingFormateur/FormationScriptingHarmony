@@ -1,28 +1,26 @@
 function dire_bonjour(){
 
     var msg = "¤¤ hello les chouchoux ¤¤  \n Passez une belle journée \n pleine de rigg de l'amour \n "
-    var emot = "❤️‍🔥✨✨✨✨✨✨✨❤️‍🔥"
+    var emot = "❤️‍🔥❤️‍🔥"
 // MessageBox.information (msg + emot)
 
-    var addonLove = (emot += 1) 
+    var addonLove = (emot += emot) 
 
     MessageBox.information (msg + addonLove) 
-    var addonLove
-    addonLove += 1 
 
-    MessageBox.information (msg + addonLove) 
-    var addonLove
-    addonLove += 1 
-
-    MessageBox.information (msg + addonLove) 
-    var addonLove
-    addonLove += 1 
-
-    MessageBox.information (msg + addonLove) 
-    var addonLove
-    addonLove += 1 
-
-    MessageBox.information (msg + addonLove)
+    MessageBox.information (addonLove) 
     
-// affiche le message de bonjour
+    addonLove += emot
+
+    MessageBox.information (addonLove) 
+    
+    addonLove += emot
+
+    MessageBox.information (addonLove) 
+
+    addonLove += emot
+
+    MessageBox.information (addonLove)
+    
+// affiche le message de bonjour + l'amour
 }
