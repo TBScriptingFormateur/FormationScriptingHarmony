@@ -195,8 +195,11 @@ function high_order_function(){
         return _target+" is healed ! "
     }    
     function fire_ball(_target){
-        return _target+" is on fire !"
+        return _target+" is on fire ! "
     }    
+    function ice_cone(_target){
+        return _target+" took a cold ! "
+    }
 
     // high order function 
     function cast_spell(_spell,_target){
@@ -204,10 +207,13 @@ function high_order_function(){
     }
     
 
-    var hero_state = cast_spell(fire_ball,"the hero")
+    var hero_state = cast_spell(fire_ball,"The hero")
     MessageBox.information(hero_state)
 
-    var hero_state = cast_spell(heal,"the hero")
+    var hero_state = cast_spell(heal,"The hero")
+    MessageBox.information(hero_state)
+    
+    var hero_state= cast_spell(ice_cone, "The hero")
     MessageBox.information(hero_state)
 
     // ecrire le sort "ice_cone" et l'appliquer comme ci dessus 
