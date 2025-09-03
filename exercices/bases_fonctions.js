@@ -1,7 +1,7 @@
 function basic_function(){
 
     function say_hello(){
-        MessageBox.trace("hello")
+        MessageBox.information("hello")
     }
 
     say_hello()
@@ -17,7 +17,7 @@ function basic_function(){
 function basic_arguments(){
 
     function say(_word){
-        MessageBox.trace(_word)
+        MessageBox.information(_word)
     }
 
     say("hello")
