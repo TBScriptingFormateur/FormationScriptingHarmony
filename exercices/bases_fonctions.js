@@ -1,33 +1,51 @@
 function basic_function(){
 
     function say_hello(){
-        MessageBox.trace("hello")
+        MessageLog.trace("hello")
     }
 
-    say_hello()
+    //say_hello()
+
+    function say_bonjour(){
+        MessageLog.trace("bonjour")
+    }
+
+    
+    say_bonjour()
+    say_bonjour()
+    say_bonjour()
 
     // ecrire une fonction qui affiche "bonjour" et l'executer trois fois 
-
 }
 
 
+function basic_pnj(){
 
+    function phrase_du_pnj(_nom,_prenom){
+        MessageLog.trace("bonjour ! "+_nom+" "+_prenom+" bienvenue dans mon auberge , "+_prenom+" c'est vraiment un très joi prenom ")
+    }
+
+    phrase_du_pnj("frappe","marion")
+    phrase_du_pnj("leroy","justine")
+
+}
 
 
 function basic_arguments(){
 
     function say(_word){
-        MessageBox.trace(_word)
+        MessageLog.trace(_word)
     }
 
     say("hello")
 
     function standup_introduction(_word,_city){
+        MessageLog.trace("Bonjour"+_city +"!!!\n Ca va bien tout le monde?? \n Vous avez déjà remarqué comme "+_word+ " c'est trop bizarre?!")
         
         // ecrire la fonction pour commencer un spectacle de stand up 
 
     }
-
+standup_introduction("les stations de ski ","Angoulême")
     // appeler la fonction pour un standup à Angouleme
 }
 
