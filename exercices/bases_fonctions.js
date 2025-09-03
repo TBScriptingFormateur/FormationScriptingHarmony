@@ -50,13 +50,13 @@ function basic_arguments(){
     function standup_introduction(_word,_city){
         
 
-        MessageLog.trace("\n" +_word + " " + _city + " !!! \n Est ce que vous êtes chauds ce soir ?? 📢📢📢 ")
+        MessageLog.trace("\n Bonsoir "   + _city + " !!! \n Est ce que vous êtes chauds ce soir ?? 📢📢📢 " + "Est-ce que vous aimez " + _word + " ??")
 
         // ecrire la fonction pour commencer un spectacle de stand up 
 
     }
 
-    standup_introduction("Bonsoir", "Angoulême🏰")
+    standup_introduction("LE SCRIPT", "ANGOULEME🏰")
 
     // appeler la fonction pour un standup à Angouleme
 }
