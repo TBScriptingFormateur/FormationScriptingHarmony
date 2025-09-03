@@ -2,17 +2,12 @@ function direBonjour(){
     var bonjour = "🫶"
     var coeur = "💖"
     
-        function addHeart(){
-            MessageBox.information(bonjour+ " " + coeur)
-            coeur += "💖"
-        }
-        addHeart()
-        addHeart()
-        addHeart()
-        addHeart()
-        addHeart()
-        addHeart()
-        addHeart()
-        addHeart()
-        
+var repetitions = [1,2,3,4,5]
+
+for (var index in repetitions){
+    
+    MessageBox.information(bonjour+ " " + coeur)
+    coeur += "💖"
+}
+ 
 }
