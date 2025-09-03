@@ -56,7 +56,7 @@ function basic_arguments(){
 
     }
 
-    standup_introduction("LE SCRIPT", "ANGOULEME🏰")
+    standup_introduction("💻LE SCRIPT 💻", "ANGOULEME🏰")
 
     // appeler la fonction pour un standup à Angouleme
 }
