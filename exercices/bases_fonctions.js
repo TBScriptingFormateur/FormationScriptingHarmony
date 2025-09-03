@@ -50,7 +50,7 @@ function basic_arguments(){
     function standup_introduction(_word,_city){
         
 
-        MessageLog.trace("\n Bonsoir "   + _city + " !!! \n Est ce que vous êtes chauds ce soir ?? 📢📢📢 " + "Est-ce que vous aimez " + _word + " ??")
+        MessageLog.trace("\n Bonsoir "   + _city + " !!! \n Est ce que vous êtes chauds ce soir ?? 📢📢📢 " + "\n Est-ce que vous aimez " + _word + " ??")
 
         // ecrire la fonction pour commencer un spectacle de stand up 
 
