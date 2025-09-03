@@ -33,7 +33,6 @@ function basic_pnj(){
     */
 
     function manger_un_fruit(_fruit){0
-
         MessageLog.trace("miam ! des "+_fruit+"s")
     }
 
