@@ -22,19 +22,25 @@ function add_10_x(){
 
 }
 
-function add_10_to_all_nodes(){
+function calculate_new_x(_node,_offset){
+    var node_x = node.coordX(_node)
+    var new_x = node_x + _offset 
+    return new_x
+}
 
+
+function add_10_to_all_nodes(){
+    
     // deplace le premier node selectionné de 10 en x
     
     const nodes_list = selection.selectedNodes()
-
+    
     const offset = 10
-
+    
     for (var index in nodes_list){
         var current_node = nodes_list[index]
-        var node_x = node.coordX(current_node)
-        var node_y = node.coordY(current_node)
-        var new_x = node_x + offset
+        var node_y = node.coordY(_node)
+        var new_x = calculate_new_x(current_node,offset)
         node.setCoord(current_node,new_x,node_y);
     }
 

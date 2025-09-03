@@ -55,7 +55,6 @@ function basic_arguments(){
 
     }
 
-    // appeler la fonction pour un standup à Angouleme
 }
 
 
@@ -64,19 +63,23 @@ function basic_arguments(){
 
 function basic_return_value(){
 
+    
     function addition(_A,_B){
-        const sum = _A+_B
+        var sum = _A+_B
         return sum
     }
 
-    var result = MessageBox.information(addition(2,3))
+    var super_sum = addition(2,2)
+    MessageBox.information(super_sum)
+        
+    /*
 
-    // ecrire une fonction pour diviser et soustraire puis afficher le resultat 
+        ecrire une fonction qui ajoute des emoticones coeurs de part et d'autre d'un mots 
 
-    // ecrire une fonction qui donne le nombre de secondes pour un nombre "h" d'heures.
+    */
 
-    // ecrire une fonction qui ajoute des emoticones coeurs de part et d'autre d'un mots 
-
+    var message_avec_coeurs = ajouter_coeur("bonjour")
+    MessageLog.trace(message_avec_coeurs)
 
 }
 
