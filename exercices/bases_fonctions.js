@@ -77,14 +77,22 @@ function basic_return_value(){
         return sum
     }
 
-    var result = MessageBox.information(addition(2,3))
+    var supersum =  addition(2,3)
+    MessageBox.information(supersum)
 
     // ecrire une fonction pour diviser et soustraire puis afficher le resultat 
 
     // ecrire une fonction qui donne le nombre de secondes pour un nombre "h" d'heures.
 
     // ecrire une fonction qui ajoute des emoticones coeurs de part et d'autre d'un mots 
-
+    
+    function SpreadDaLove(_msg){
+     
+        var amour = "💜​"+_msg+"💜​"
+        return amour
+    }
+    
+    MessageLog.trace(SpreadDaLove("Bonjour"))
 
 }
 
