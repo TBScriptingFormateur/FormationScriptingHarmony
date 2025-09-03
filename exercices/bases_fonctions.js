@@ -86,13 +86,13 @@ function basic_return_value(){
 
     // ecrire une fonction qui ajoute des emoticones coeurs de part et d'autre d'un mots 
     
-    function SpreadDaLove(_msg){
+    function SpreadDaLove(_emot,_msg){
      
-        var amour = "💜​"+_msg+"💜​"
+        var amour = _emot+_msg+_emot
         return amour
     }
     
-    MessageLog.trace(SpreadDaLove("Bonjour"))
+    MessageLog.trace(SpreadDaLove("💜​","Bonjour"))
 
 }
 
@@ -109,10 +109,12 @@ function variable_scope_1 (){
     }
 
     ajoute_une_lettre("B")
+    MessageLog.trace(mots)
     ajoute_une_lettre("C")
+    MessageLog.trace(mots)
     ajoute_une_lettre("D")
 
-    MessageBox.information(mots)
+    MessageLog.trace(mots)
 
     // ecrire une fonction pour multiplier un nombre par deux à m'infini
 

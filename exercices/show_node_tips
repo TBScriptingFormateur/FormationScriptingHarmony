@@ -1,0 +1,26 @@
+
+
+function shown_node_tips(){
+    MessageLog.trace("Show_node_tips")
+    var selected_node = selection.selectedNode()[0]
+    var msg = get_node_tips(selected_node)
+    MessageBox.information (msg)
+}
+
+function get_node_tips(_node){
+    MessageLog.trace("get_backdrop_text_of_node"+_node)
+    var backdrop_text = get_backdrop_hint (_a_node)
+    return backdrop_text
+}
+
+function get_backdrop_hint(_node){   
+    MessageLog.trace("get_backdrop_text_of_node"+_node)
+    var backdrop = get_backdrop_from_node(_node)
+    return "Ce node est pratique pour  ça"
+}
+
+function get_node_backdrop(_node){
+     MessageLog.trace("get_node_brackdrop"+_node)
+
+
+    }
