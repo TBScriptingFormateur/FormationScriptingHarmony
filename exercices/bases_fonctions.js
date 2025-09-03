@@ -43,13 +43,13 @@ function basic_arguments(){
 
     }
     
-
+   
     // Creation of the dialog box to ask the question
 
     var myDialog = new Dialog();
     myDialog.title = "Hey!";
-    
-    
+
+
     //Creation of the line edit that allows the user to give an input. The string will be saved inside userInput.
 
     var userInput = new LineEdit();
@@ -58,12 +58,14 @@ function basic_arguments(){
 
 
     // Executes the dialog to be able to interact with it.
-    
-    myDialog.exec()
 
+    myDialog.exec()
+    
+    
     // Transforms the input of the user in text to be able to use it as an input.
     
     var inputText = userInput.text;
+
 
     // Condition to check if there is something inside the input line. Otherwise it creates a message popping-up.
 
@@ -84,19 +86,39 @@ function basic_arguments(){
 
 function basic_return_value(){
 
-    function addition(_A,_B){
+    /*function addition(_A,_B){
         const sum = _A+_B
         return sum
     }
 
     var result = MessageBox.information(addition(2,3))
-
+    */
     // ecrire une fonction pour diviser et soustraire puis afficher le resultat 
 
     // ecrire une fonction qui donne le nombre de secondes pour un nombre "h" d'heures.
 
     // ecrire une fonction qui ajoute des emoticones coeurs de part et d'autre d'un mots 
+    function aujute_coeur(_word){
 
+        var coeurs = "❤️‍🔥" + _word + "❤️‍🔥"
+        return coeurs
+        
+    }
+    
+    MessageBox.information(aujute_coeur(aujute_coeur("Bonjour")))
+
+
+    function addEmoticones(_emoticone,_phrase){
+   
+        var message_emo = _emoticone + _phrase + _emoticone
+        
+        return message_emo
+    
+    }
+
+    var phrase = " Arrrgh! "
+
+    MessageBox.information(addEmoticones("❤️‍🔥❤️‍🔥​",phrase))
 
 }
 
