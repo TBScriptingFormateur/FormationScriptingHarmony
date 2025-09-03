@@ -1,10 +1,13 @@
+
 function basic_function(){
 
     function say_hello(){
-        MessageBox.trace("hello")
+        MessageLog.trace("hello")
     }
 
-    say_hello()
+    var my_var = 10
+
+    say_hello
 
     // ecrire une fonction qui affiche "bonjour" et l'executer trois fois 
 
@@ -12,12 +15,37 @@ function basic_function(){
 
 
 
+function basic_pnj(){
+    
+    function phrase_du_pnj(_nom,_prenom){
+        MessageLog.trace("bonjour ! "+_nom+" "+_prenom+" bienvenue dans mon auberge , "+_prenom+" c'est vraiment un très joi prenom ")
+        }
+        
+        phrase_du_pnj("frappe","marion")
+        
+        phrase_du_pnj("leroy","justine")
+        
+        var fruit = "Pomme"
+        
+    /*
+
+
+    */
+
+    function manger_un_fruit(_fruit){0
+
+        MessageLog.trace("miam ! des "+_fruit+"s")
+    }
+
+
+    manger_un_fruit(fruit)
+}
 
 
 function basic_arguments(){
 
     function say(_word){
-        MessageBox.trace(_word)
+        MessageLog.trace(_word)
     }
 
     say("hello")
