@@ -33,19 +33,19 @@ function basic_pnj(){
 
 function basic_arguments(){
 
-    function say(_word){
+   /* function say(_word){
         MessageLog.trace(_word)
     }
 
-    say("hello")
+    //say("hello")*/
 
-    function standup_introduction(_word,_city){
-        MessageLog.trace("Bonjour"+_city +"!!!\n Ca va bien tout le monde?? \n Vous avez déjà remarqué comme "+_word+ " c'est trop bizarre?!")
+    function standup_introduction(_word,_city,_adjectif){
+        MessageLog.trace("Bonjour"+_city +"!!!\n Ca va bien tout le monde?? \n Vous avez déjà remarqué comme "+_word+ " c'est trop"+_adjectif+" ?! \n *foule en délire* 🤣😂🤣 ")
         
         // ecrire la fonction pour commencer un spectacle de stand up 
 
     }
-standup_introduction("les stations de ski ","Angoulême")
+standup_introduction(" les stations de ski "," Angoulême"," bizarre")
     // appeler la fonction pour un standup à Angouleme
 }
 
