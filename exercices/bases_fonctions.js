@@ -98,16 +98,7 @@ function basic_return_value(){
     // ecrire une fonction qui donne le nombre de secondes pour un nombre "h" d'heures.
 
     // ecrire une fonction qui ajoute des emoticones coeurs de part et d'autre d'un mots 
-    function aujute_coeur(_word){
-
-        var coeurs = "❤️‍🔥" + _word + "❤️‍🔥"
-        return coeurs
-        
-    }
     
-    MessageBox.information(aujute_coeur(aujute_coeur("Bonjour")))
-
-
     function addEmoticones(_emoticone,_phrase){
    
         var message_emo = _emoticone + _phrase + _emoticone
@@ -115,10 +106,35 @@ function basic_return_value(){
         return message_emo
     
     }
+    
+    function aujute_coeur(_word){
 
-    var phrase = " Arrrgh! "
+        var coeurs = "😒" + _word + "😒"
+        return coeurs
+        
+    }
 
-    MessageBox.information(addEmoticones("❤️‍🔥❤️‍🔥​",phrase))
+    var dialog  = new Dialog()   
+    var checkbox = new CheckBox()
+    var table_check = []
+    checkbox.text = "<=="
+    dialog.add(checkbox)
+    dialog.title = "Will you push the button ?"
+    table_check.push(checkbox)
+
+    dialog.exec()
+
+
+    if(table_check[0].checked){
+        
+        var phrase = " Arrrgh! "
+        MessageBox.information(addEmoticones("❤️‍🔥❤️‍🔥​",phrase))
+
+    } else{
+
+        MessageBox.information(aujute_coeur(aujute_coeur("Bon...")))
+
+    }
 
 }
 
