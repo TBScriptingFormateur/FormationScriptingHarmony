@@ -19,13 +19,17 @@ function waypoints_above(){
         var sNode = selection.selectedNode(i)
         var pNode = node.parentNode(sNode)
         var name = node.getName(sNode)
+
         //  var positionX = node.coordX(sNode)
         // var positionY = node.coordY(sNode)
         //var position = [positionX, positionY]
+
         var nWidth = parseFloat(node.width(sNode))/2
         var nHeight = parseFloat(node.height(sNode))
+
         //MessageBox.information("the position is: " + position)
         //var paPath = node.dstNode(sNode, 0, 0)
+        
         if (Math.floor(nWidth) !== nWidth){
             nWidth = nWidth + 10
         }else{

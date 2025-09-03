@@ -1,11 +1,25 @@
 function basic_function(){
 
     function say_hello(){
-        MessageBox.trace("hello")
+        MessageLog.trace("hello")
     }
 
     say_hello()
+    
+    function say_bonjour(){
 
+        for (var i = 0; i < 3; i++){
+
+            MessageLog.trace("Bonjour")
+
+        }
+
+
+
+    }
+
+    say_bonjour()
+    
     // ecrire une fonction qui affiche "bonjour" et l'executer trois fois 
 
 }
@@ -17,18 +31,51 @@ function basic_function(){
 function basic_arguments(){
 
     function say(_word){
-        MessageBox.trace(_word)
+        MessageLog.trace(_word)
     }
-
-    say("hello")
-
+    
+    say("Good night")
+    
     function standup_introduction(_word,_city){
         
-        // ecrire la fonction pour commencer un spectacle de stand up 
+        MessageBox.information( _city + "! I am a " + _word + " and I am pretty happy to be here tonight!" )
+        
 
     }
+    
 
-    // appeler la fonction pour un standup à Angouleme
+    // Creation of the dialog box to ask the question
+
+    var myDialog = new Dialog();
+    myDialog.title = "Hey!";
+    
+    
+    //Creation of the line edit that allows the user to give an input. The string will be saved inside userInput.
+
+    var userInput = new LineEdit();
+    userInput.label = "Chose a word: ";
+    myDialog.add( userInput );
+
+
+    // Executes the dialog to be able to interact with it.
+    
+    myDialog.exec()
+
+    // Transforms the input of the user in text to be able to use it as an input.
+    
+    var inputText = userInput.text;
+
+    // Condition to check if there is something inside the input line. Otherwise it creates a message popping-up.
+
+    if (inputText.length > 0){
+
+        standup_introduction(inputText,"Angouleme")
+        
+    }else{
+
+        MessageBox.information("Write something you DumbHead !")
+    }
+
 }
 
 
