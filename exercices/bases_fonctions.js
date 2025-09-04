@@ -22,7 +22,6 @@ function basic_pnj(){
         }
         
         phrase_du_pnj("frappe","marion")
-        
         phrase_du_pnj("leroy","justine")
         
         var fruit = "Pomme"
