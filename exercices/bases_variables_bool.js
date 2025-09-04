@@ -22,14 +22,22 @@ function variable_bool_and(){
     var my_bool = node_type == target_type && node_name == target_name 
     MessageBox.information(my_bool)
 
-}
-
-function select_read(){
-    
-    selection.addNodesToSelection (["Top/group","Top/Drawing"])
     //var list_of_read = node.getNodes(["READ","PEG","GROUP","MasterController"])
     //MessageLog.trace(list_of_read)
+}
 
+
+
+function select_only_reads(){
+    selection.clearSelection()
+    var list = node.getNodes(["READ"])
+    selection.addNodesToSelection(list)
+}
+
+
+
+function select_read(){ // delenché par le boutton select_read
+    select_only_reads()
 }
 
 
