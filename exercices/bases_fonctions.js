@@ -78,7 +78,7 @@ function basic_return_value(){
 
     */
 
-    var message_avec_coeurs = ajouter_coeur("bonjour")
+    var message_avec_coeurs = ajouter_emoticones("🤖","bonjour")
     MessageLog.trace(message_avec_coeurs)
 
 }
@@ -88,21 +88,15 @@ function basic_return_value(){
 
 
 function variable_scope_1 (){
-
-    var mots = "A"
-
-    function ajoute_une_lettre(_lettre){
-        mots = mots+_lettre
+    
+    function myfunc_A(){
+        myfunc_B()
+    }    
+    function myfunc_B(){
+        MessageLog.trace("B")
     }
 
-    ajoute_une_lettre("B")
-    ajoute_une_lettre("C")
-    ajoute_une_lettre("D")
-
-    MessageBox.information(mots)
-
-    // ecrire une fonction pour multiplier un nombre par deux à m'infini
-
+    myfunc_A()
 
 }
 
@@ -147,7 +141,6 @@ function high_order_function(){
     function cast_spell(_spell,_target){
         return _spell(_target)
     }
-    
 
     var hero_state = cast_spell(fire_ball,"the hero")
     MessageBox.information(hero_state)

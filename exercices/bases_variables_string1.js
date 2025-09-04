@@ -20,6 +20,7 @@ function incendie(){
 
     MessageBox.information(incendie)
 
+
     feu += feu
     MessageBox.information(feu)
 
