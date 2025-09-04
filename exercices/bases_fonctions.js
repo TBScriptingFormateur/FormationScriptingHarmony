@@ -76,18 +76,41 @@ function basic_pnj(){
 
 function basic_return_value(){
 
+/*
     function addition(_A,_B){
         const sum = _A+_B
         return sum
     }
-
     var result = MessageBox.information(addition(2,3))
-
+   
+    
     // ecrire une fonction pour diviser et soustraire puis afficher le resultat 
 
-    // ecrire une fonction qui donne le nombre de secondes pour un nombre "h" d'heures.
+    */
+   
+   // ecrire une fonction qui donne le nombre de secondes pour un nombre "h" d'heures.
 
+    function secondsNumber (_nbHeures){
+        var calcul = _nbHeures*60
+        return calcul 
+    }
+        var nbHeures = 10
+
+    MessageLog.trace(secondsNumber(nbHeures))
+    
     // ecrire une fonction qui ajoute des emoticones coeurs de part et d'autre d'un mots 
+
+    function addEmoticon (_emoticone,_mot){
+        var message = _emoticone + _mot + _emoticone
+        return message
+    }
+
+    var mot = "non mais oh! "
+    var emo = "💢"
+    var message = addEmoticon(emo,mot)
+
+    MessageLog.trace(message)
+    MessageLog.trace(addEmoticon(emo,message))
 
 
 }
