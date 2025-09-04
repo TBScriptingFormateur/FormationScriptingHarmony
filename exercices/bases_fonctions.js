@@ -45,7 +45,7 @@ function basic_arguments(){
         // ecrire la fonction pour commencer un spectacle de stand up 
 
     }
-standup_introduction(" les stations de ski "," Angoulême"," bizarre")
+    standup_introduction(" les stations de ski "," Angoulême"," bizarre")
     // appeler la fonction pour un standup à Angouleme
 }
 
@@ -54,20 +54,36 @@ standup_introduction(" les stations de ski "," Angoulême"," bizarre")
 
 
 function basic_return_value(){
-
+/*
     function addition(_A,_B){
         const sum = _A+_B
         return sum
     }
 
+    
     var result = MessageBox.information(addition(2,3))
-
     // ecrire une fonction pour diviser et soustraire puis afficher le resultat 
-
+    
     // ecrire une fonction qui donne le nombre de secondes pour un nombre "h" d'heures.
-
+    
+    function secondes(_A){
+        const sum = (_A*60)*60
+        return sum
+    }
+    
+    var result = MessageBox.information(secondes(8))
+    
     // ecrire une fonction qui ajoute des emoticones coeurs de part et d'autre d'un mots 
+    */
 
+    function inlove(_A,_B){
+
+        const msg = _B+_A+_B
+        return msg
+    }
+    var message_avc_keur = inlove(inlove(inlove(inlove("rigging","😻"))))
+    MessageBox.information(message_avc_keur)
+    
 
 }
 
@@ -77,7 +93,7 @@ function basic_return_value(){
 
 function variable_scope_1 (){
 
-    var mots = "A"
+    /*var mots = "A"
 
     function ajoute_une_lettre(_lettre){
         mots = mots+_lettre
@@ -86,10 +102,19 @@ function variable_scope_1 (){
     ajoute_une_lettre("B")
     ajoute_une_lettre("C")
     ajoute_une_lettre("D")
-
     MessageBox.information(mots)
-
+    */
     // ecrire une fonction pour multiplier un nombre par deux à m'infini
+    
+        var chiffre = "2"
+    
+        function multiplier(_multiplicateur){
+            chiffre = chiffre +_multiplicateur
+        }
+    
+        ajoute_une_lettre("*2")
+
+    
 
 
 }
