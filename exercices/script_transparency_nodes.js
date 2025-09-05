@@ -15,9 +15,13 @@ function node_creator(){
     // Variables for the whole scene.
 
     var all_nodes = selection.selectedNodes()
+    var count = selection.numberOfNodesSelected(all_nodes)
     // var node_type = node.type(all_nodes)
     var node_parent = node.parentNode(all_nodes)
-    var count = all_nodes.length
+    var new_count = all_nodes.length
+
+    MessageLog.trace("there is " + count + " nodes selected.")
+    MessageLog.trace("there is " + new_count + " nodes selected.")
     
     for( var i = 0 ; i < count ; i++){
 
@@ -41,7 +45,8 @@ function node_creator(){
         // Trace the type of the selectednodes to be able to know if there was an error with any specific node or to see if there is any node in another path than the rest.
         
         MessageLog.trace(node_type)
-        MessageLog.trace(all_nodes)
+        //There is a problem with the loop doing that all the nodes pass at the same time.
+        MessageLog.trace(all_nodes[i])
         
         
         
@@ -84,6 +89,12 @@ function node_creator(){
                 
                 node.add(node_parent, final_name, type_of_node, coordX, new_coordY, 0)
                 
+                selection.clearSelection(all_nodes)
+
+                var created_node = selection.addNodeToSelection(final_name)
+                node.link(all_nodes[i], 0, created_node, 0)
+
+                MessageLog.trace(created_node)
                 
                 // if the node is linked, link the transparency node between the node that is linked to.
                 
@@ -109,8 +120,7 @@ function node_creator(){
                 
                 
                 scene.endUndoRedoAccum()
-                var created_node = selection.addNodeToSelection(final_name)
-                node.link(all_nodes[i], 0, created_node, 0)
+                //There is a problem with the node selection. the value it returns is false, so it's not selecting any node.
             }
                 
         }else{
