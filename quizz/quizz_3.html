@@ -1,13 +1,20 @@
 <center>
 
 
+<style>
+    .game{
+        cursor: pointer; 
+    }
 
+</style>
 
-<canvas id="myCanvas" width="290" height="500">
+<canvas id="myCanvas" width="290" height="500" class="game">
 Your browser does not support the HTML canvas tag.
 </canvas>
 
 <script>
+
+    //cursor: pointer; 
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
     canvas.width  = window.innerWidth*0.7;
@@ -27,7 +34,7 @@ Your browser does not support the HTML canvas tag.
 
     var game_colors = {
         background:"black",
-        text:"white",
+        text:"yellow",
         snowflakes:"grey"
     }    
 
@@ -45,36 +52,27 @@ Your browser does not support the HTML canvas tag.
 
     function update_layout(){
 
-        var min_height= 1080
-        var max_height= 1080
-        var min_width = 1920
-        var max_width = 1920
+        var min_width = 290
+        var min_height= 500
+
         var calculated_width = window.innerWidth > min_width ? window.innerWidth : min_width
         var calculated_eigth = window.innerHeight > min_height ? window.innerHeight : min_height
-
-        if(calculated_eigth>max_height ){
-            calculated_eigth = max_height
-        }
-        if(calculated_width>max_width ){
-            calculated_width = max_width
-        }
 
         canvas.width  = calculated_width
         canvas.height = calculated_eigth
     
         var font_size = 20
 
-        var min_quizz_height = 330
-        var min_quizz_wdth = 300
+        var min_quizz_height = 290
+        var min_quizz_wdth = 290
         var reduction = 0.5
         
         var quizz_width=canvas.width*reduction > min_quizz_wdth  ? canvas.width*reduction : min_quizz_wdth
         var quizz_height=canvas.height*reduction > min_quizz_height  ? canvas.height*reduction : min_quizz_height
         game_layout = {
-            margin_top:30,
             interline:font_size,
             font_size:font_size,
-            font:"20px Courier New",
+            font:"20px Verdana",
             quizz_width:quizz_width,
             quizz_height:quizz_height,
             quizz_x:(canvas.width/2)-(quizz_width/2),
@@ -159,15 +157,15 @@ Your browser does not support the HTML canvas tag.
             this.buttons.push(button)
         }
         this.clicked=function(){
-            ////console.log("clicked")
-            ////console.log(this.current_button)
+            //console.log("clicked")
+            //console.log(this.current_button)
         }
     }
 
     function Button(_name,_text,_scene){
         this.x = 0
         this.y = 0
-        this.hover_color = "blue"
+        this.hover_color = "red"
         this.idle_color = game_colors.background
         this.width = canvas.width
         this.height = 60
@@ -207,10 +205,8 @@ Your browser does not support the HTML canvas tag.
         this.adjust_x = 5
         this.adjust_y = 20
         this.content = _content
-        this.animated_content =""
         this.color = game_colors.text
         this.bottom_y = 0
-        this.wrap_limit = game_layout.quizz_width/18
         this.set = function(_x,_y){
             this.x = _x
             this.y = _y
@@ -224,7 +220,7 @@ Your browser does not support the HTML canvas tag.
         }
 
         this.get_number_of_lines = function(){
-            return this._split(this.animated_content).length
+            return this._split().length
         }        
 
         this.get_height = function(){
@@ -234,28 +230,22 @@ Your browser does not support the HTML canvas tag.
             return game_layout.quizz_width
         }
 
-        this._split = function(_content){
+        this._split = function(){
             var lines = []
             var current_line = ""
             var current_char = ""
-            var limit =this.wrap_limit
+            var limit =game_layout.quizz_width/15
             var count = 0
-            for (var l = 0 ; l<_content.length;l++){
-                current_char = _content[l]
+            for (var l = 0 ; l<this.content.length;l++){
+                current_char = this.content[l]
                 current_line+=current_char
                 if(count>=limit && current_char==" "){
                     lines.push(current_line)
                     count=0
                     current_line = ""
                     continue
-                }                
-                if(count>=limit+10 && current_char!=" "){
-                    lines.push(current_line+"-")
-                    count=0
-                    current_line = ""
-                    continue
                 }
-                if(l==_content.length-1){
+                if(l==this.content.length-1){
                     lines.push(current_line)
                 }
                 count+=1
@@ -266,45 +256,18 @@ Your browser does not support the HTML canvas tag.
 
         this.draw = function(){
             this.bottom_y = 0
-            if (this.animation_tick % 8 ==0){
-                this.animated_content = this.truncate_line(this.content,this.displayed_letters)
-                this.displayed_letters+=1
-            }
-            var lines = this._split(this.animated_content)
+            var lines = this._split()
             var offset_y = this._parent.y+this.y
             var x = this._parent.x+this.x
             var y = offset_y
-            
             for(var l in lines){
                 y =offset_y+(l*game_layout.interline)
                 context.fillStyle =this.color;
                 context.font = game_layout.font
-                x+=Math.random()*1
-                y+=Math.random()*1
                 context.fillText(lines[l], x+this.adjust_x, y+this.adjust_y);  
             }
-            this.animation_tick+=1
-            //console.log(y)
             return this.bottom_y = y
         }
-
-        this.animation_tick = 0
-        this.displayed_letters = 0
-
-        this.truncate_line = function(_line,_index){
-            var truccated_line = ""
-            for (var l=0; l< _line.length;l++){
-                if(l>_index){
-                    break
-                }                
-                if(l>_index){
-                    break
-                }
-                truccated_line+=_line[l]
-            }     
-            return truccated_line       
-        }
-
     }
 
 
@@ -312,7 +275,6 @@ Your browser does not support the HTML canvas tag.
     function Quizz(_scene){
 
         this._scene = _scene
-        this.questions_list = []
         this.questions = []
         this.score = 0
         this.current_question = undefined
@@ -324,27 +286,20 @@ Your browser does not support the HTML canvas tag.
         this.height = game_layout.quizz_height
         this.x = game_layout.quizz_x
         this.y= game_layout.quizz_y
-        this.max_questions = 10
         
         this.load_questions = function(_data){
             for (var q in _data.questions){
-                this.questions_list.push(new Question(this).load(_data.questions[q]).set(0,game_layout.margin_top))
+                this.questions.push(new Question(this).load(_data.questions[q]).set(0,50))
             }
-            this.questions_list = shuffle_array(this.questions_list)
-            for (var q in this.questions_list){
-                if(q >= this.max_questions){
-                    break
-                }
-                this.questions.push(this.questions_list[q])
-            }
-            this.header = new Text("?",this).set(0,game_layout.margin_top)
+            this.questions = shuffle_array(this.questions)
+            this.header = new Text("?",this).set(0,50)
             this.update_question_number()
 
         }
 
         this.set_header = function(_content){
             var display_index = this.question_index+1
-            this.header.set_content("Question "+display_index+"/"+this.questions.length+"  "+_content)
+            this.header.set_content("Question "+display_index+"  "+_content)
         }
         
         this.draw = function(){
@@ -375,12 +330,12 @@ Your browser does not support the HTML canvas tag.
             this.question_index+=1
             this.update_question_number()
             if(this.question_index<this.questions.length){
-                ////console.log(this.question_index)
+                //console.log(this.question_index)
                 this.current_question = this.questions[this.question_index]
                 this.set_state("question")
             }else{
                 this.has_ended = true
-                ////console.log("END OF QUIZZ")
+                //console.log("END OF QUIZZ")
                 this.set_state("end")
             }
         }
@@ -421,21 +376,18 @@ Your browser does not support the HTML canvas tag.
         this.draw = function(_part){
             if(_part =="question"){
                 context.strokeStyle  = "blue";
-                context.strokeRect(this.x-10,this.y-10, this.text.get_width()+game_layout.margin_top, game_layout.quizz_height);
+                context.strokeRect(this.x-10,this.y-10, this.text.get_width()+50, game_layout.quizz_height);
                 this.text.draw()
-                var next_y = this.y+this.text.get_height()+game_layout.margin_top
+                var next_y = this.y+this.text.get_height()+50
                 this.draw_answers(this.x,next_y)
             }
             if(_part =="correction"){
-                context.strokeStyle  = "white";
-                context.strokeRect(this.x-10,this.y-10, this.text.get_width()+game_layout.margin_top, game_layout.quizz_height);
                 this.correction.draw()
             }
             return this    
         }
         
         this.draw_answers = function(_x,_y){
-            //console.log(_y)
             var gap = 30
             var next_y = _y
             for(var a = 0 ; a < this.answers.length ; a++){
@@ -526,7 +478,9 @@ Your browser does not support the HTML canvas tag.
             this.y+=this.vy*0.5
         }
         this.draw = function(){
-            context.fillStyle = "white";
+            colors = ["black","yellow","blue","green","red"]
+            random_color = colors[Math.round(Math.random()*colors.length)]
+            context.fillStyle = random_color;
             context.font = game_layout.font;                           
             context.fillText(this.symbol,this.x,this.y);  
             /*
@@ -545,7 +499,7 @@ Your browser does not support the HTML canvas tag.
     // FX
     function init_stars(_symbols){
         stars = []
-        for(var s = 0; s < 100 ; s++){
+        for(var s = 0; s < 2000 ; s++){
             var rand_x = Math.random()*canvas.width
             var rand_y = Math.random()*canvas.height
             star = new Star(rand_x,rand_y)
@@ -621,7 +575,7 @@ Your browser does not support the HTML canvas tag.
         menu_scene.set_background_color("red")
         menu_scene.init = function(){
             init_stars("#")
-            ////console.log(this._name)
+            //console.log(this._name)
             this.add_button("start","Commencer le quizz --> ",0,canvas.height-50)
             
         }    
@@ -635,7 +589,7 @@ Your browser does not support the HTML canvas tag.
                 return
             }
             if(this.current_button._name == "start"){
-                ////console.log("Commencer le quizz")
+                //console.log("Commencer le quizz")
                 this.current_button = undefined
                 this._game.set_current_scene("quizz")
             }
@@ -645,12 +599,15 @@ Your browser does not support the HTML canvas tag.
         var quizz_scene = new Scene("quizz")
         quizz_scene.set_background_color("black")
         quizz_scene.init = function(){
-            ////console.log(this._name)
+            //console.log(this._name)
             this.quizz = new Quizz(quizz_scene)
             this.add_button("next_question","Question suivante >",0,canvas.height-50)
             this.quizz.load_questions(QUIZZ_DATA)
             this.quizz.start()
-            init_stars(".")
+             console.log("---------------------------------------------------")
+             console.log(JSON.stringify(QUIZZ_DATA))
+             console.log("---------------------------------------------------")
+             init_stars("*")
         }    
         quizz_scene.draw = function(){
             this.draw_background()
@@ -661,20 +618,20 @@ Your browser does not support the HTML canvas tag.
             }
         }
         quizz_scene.clicked = function(){
-            ////console.log(this.quizz.state)
+            //console.log(this.quizz.state)
             if(this.quizz.state=="question"){
                 if(this.quizz.current_question.selected_answer!=undefined){
                     this.current_button=undefined
                     if(this.quizz.current_question.selected_answer.valid==true){
                         quizz_scene.set_background_color("green")
-                        this.quizz.set_header("Correct")
+                        this.quizz.set_header("Bonne réponse !")
                         this.quizz.score+=1
                     }else{
                         quizz_scene.set_background_color("red")
-                        this.quizz.set_header("Incorrect")
+                        this.quizz.set_header("Mauvaise réponse ... ")
                     }
-                    ////console.log(this.quizz.score)
-                    ////console.log((this.quizz.score/this.quizz.questions.length)*100)
+                    //console.log(this.quizz.score)
+                    //console.log((this.quizz.score/this.quizz.questions.length)*100)
                     this.quizz.current_question.selected_answer=undefined
                     this.quizz.set_state("correction")
                 }
@@ -700,9 +657,9 @@ Your browser does not support the HTML canvas tag.
         var score_scene = new Scene("score")
         score_scene.set_background_color("black")
         score_scene.init = function(){
-            init_stars("*")
+            init_stars("#")
             var message = "Bravo "+quizz_game.score+"% de bonnes réponses ! Merci d'avoir fait ce quizz et Joyeux Noël ! "
-            this.end_message = new Text(message,{x:0,y:0}).set(game_layout.quizz_x,game_layout.quizz_y+game_layout.margin_top)
+            this.end_message = new Text(message,{x:0,y:0}).set(game_layout.quizz_x,game_layout.quizz_y+50)
             this.end_message.set_color("yellow")
             this.add_button("restart","<< Recommencer",0,canvas.height-50)
         }   
@@ -744,52 +701,85 @@ Your browser does not support the HTML canvas tag.
 
         questions:[
             {   
-                text:"Pour creer une copie d'un repos en local on fait un ... ",
-                correction: "clone",
-                answers:[
-                {
-                    text:"clone",
-                    valid:true
-                },                    
-                {
-                    text:"push",
-                    valid:false
-                },                {
-                    text:"fetch",
-                    valid:false
-                },
-                ]
-            },  
-            {   
-                text:"en javascript le resultat de '2'+2  est ",
+                text:"pour transmettre une valeur à une fonction on utilise",
                 correction: "",
                 answers:[
                 {
-                    text:"22",
+                    text:"un argument",
                     valid:true
                 },                    
                 {
-                    text:"4",
+                    text:"le mots clef 'function'",
                     valid:false
                 },                {
-                    text:"2",
+                    text:"le mots clef 'return' ",
                     valid:false
                 },
                 ]
-            },             {   
-                text:"Est ce que ce code fonctionne ? : var hero='paul' ; var msg = 'bonjour 'paul' bienvenue dans l'auberge' ",
-                correction: "il manque les + pour concatener les string du message à la variabble hero ",
+            }, 
+            {   
+                text:"une fonction attaché à une classe s'appelle ",
+                correction: "",
                 answers:[
-                    {
-                        text:"Non",
-                        valid:true
-                    },                    
-                    {
-                        text:"OUI",
-                        valid:false
-                    }
+                {
+                    text:"une methode",
+                    valid:true
+                },                    
+                {
+                    text:"une propriété",
+                    valid:false
+                },                {
+                    text:"un process",
+                    valid:false
+                },
                 ]
-            },             
+            }, 
+            {   
+                text:"pour transmettre une valeur à une fonction on utilise",
+                correction: "",
+                answers:[
+                {
+                    text:"un argument",
+                    valid:true
+                },                    
+                {
+                    text:"le mots clef 'function'",
+                    valid:false
+                },                {
+                    text:"le mots clef 'return' ",
+                    valid:false
+                },
+                ]
+            },               
+ 
+            {   
+                text:"l'expression  'bretagne' == 'auvergne' && ( 10 == 5+5 ) est égale à ",
+                correction: "",
+                answers:[
+                {
+                    text:"false",
+                    valid:true
+                },                    
+                {
+                    text:"true",
+                    valid:false
+                }
+                ]
+            },  
+            {   
+                text:"l'expression  ( true && false ) || ( true && true ) est égale à  ",
+                correction: "",
+                answers:[
+                {
+                    text:"true",
+                    valid:true
+                },                    
+                {
+                    text:"false",
+                    valid:false
+                }
+                ]
+            },            
             {   
                 text:"Une variable declarée dans une fonction est accessible (visible) par ",
                 correction: "",
@@ -799,97 +789,71 @@ Your browser does not support the HTML canvas tag.
                     valid:true
                 },                    
                 {
-                    text:"Elle meme et ses fonctions parent",
+                    text:"Elle meme et ses fonctions parentes",
                     valid:false
                 },                {
-                    text:"Seuelement de ses fonctions enfants",
+                    text:"Uniquement ses fonctions enfants",
                     valid:false
                 },
                 ]
-            },             
+            },              
+ 
             {   
-                text:"Dans une fonction le nombre d'arguments est  ",
+                text:"le code présent dans esle{} est exécuté quand la condtion du if() est ",
                 correction: "",
                 answers:[
                 {
-                    text:"limité",
+                    text:"false",
                     valid:true
                 },                    
                 {
-                    text:"illimité",
+                    text:"true",
                     valid:false
-                },                {
-                    text:"suedois",
-                    valid:false
-                },
+                }
                 ]
             },            
-             {   
-                text:"Une fonction peut retourner plusieur variables ",
+            {   
+                text:"Pour selectionner un node 'Top/monnode' on utilise la synthaxe",
                 correction: "",
                 answers:[
                 {
-                    text:"FAUX",
+                    text:"node.addNodeToSelection('Top/monnode')",
                     valid:true
                 },                    
                 {
-                    text:"VRAIS",
+                    text:"selection.addNodeToSelection('Top/monnode')",
+                    valid:false
+                },                    
+                {
+                    text:"user.addNodeToSelection('Top/monnode')",
                     valid:false
                 }
                 ]
-            } ,            
-             {   
-                text:"les donnees d'un objets sont ecrites  ",
+            },                
+            {   
+                text:"Pour obtenir la liste de tout les composites de la scene on utilise la synthaxe",
                 correction: "",
                 answers:[
                 {
-                    text:"entre {}",
+                    text:"node.getNodes(['COMPOSITE'])",
                     valid:true
                 },                    
                 {
-                    text:"entre ()",
+                    text:"selection.getNodes('COMPOSITE')",
                     valid:false
-                }
-                ]
-            },
-            {           
-                text:"Que va affciher le code : for(a in [1,2,3]){ MessageLog.trace(a)}",
-                correction: "c'est la variable d'index qui est affichée et nom le contenu de l'array",
-                answers:[
-                {
-                    text:"0 1 2",
-                    valid:true
                 },                    
                 {
-                    text:"1 2 3",
-                    valid:false
-                }  ,              
-                {
-                    text:"[1,2,3]",
+                    text:"node.getNodes('COMPOSITE')",
                     valid:false
                 }
                 ]
-            },
+            }             
 
-            {           
-                text:"Quel est la valeur de n finale : var n=5 ; n *= 2 ; , n += 2 ",
-                correction: "",
-                answers:[
-                {
-                    text:"12",
-                    valid:true
-                },                    
-                {
-                    text:"9",
-                    valid:false
-                }
-                ]
-            }       
-           
         ]
     }
 
-    game_graphics.santa.src = 'http://www.collectif-les-etincelles.fr/wp-content/uploads/2024/11/santa_2.png';
+    //game_graphics.santa.src = 'http://www.collectif-les-etincelles.fr/wp-content/uploads/2024/11/santa_2.png';
+    game_graphics.santa.src = 'bool.png';
     game_graphics.santa.onload = function() {
         init()
         setInterval(main_loop)
