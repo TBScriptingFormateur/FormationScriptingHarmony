@@ -12,8 +12,6 @@ function class_demo(){
         node.add("Top",cnode.name,cnode.type,cnode.x,cnode.y,0)
     }
 
-
-
 }
 
 

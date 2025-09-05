@@ -3,10 +3,7 @@
 function test(){
     var bool = false
     if(bool==true){
-
         MessageBox.information("it's true !")
-        
-
     }
 }
 
