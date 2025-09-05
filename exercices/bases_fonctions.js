@@ -131,3 +131,13 @@ function high_order_function(){
 
 
 
+function F1(){
+    
+    var A = F2()
+    function F2(){
+        var A = 1
+        return A
+    }
+
+    MessageBox.information()
+}
