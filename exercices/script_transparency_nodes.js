@@ -16,35 +16,34 @@ function node_creator(){
 
     var all_nodes = selection.selectedNodes()
     var count = all_nodes.length
-    var node_parent = node.parentNode(all_nodes)
-    var new_count = all_nodes.length
+    
+
+
+
+    // Allows to change the type of node by "FADE", "COMPOSITE", "READ"... (For the read node it has to be set up the column association and the elementid thing.)
+        
+    var type_of_node = "FADE"
+
+    
+    // The name you want to show for the node 
+        
+    var node_name_type = "LS_TRANSPARENCY"
+
 
     MessageLog.trace("there is " + count + " nodes selected.")
     
     
     for ( var i = 0 ; i < count ; i++){
 
-        
+
         // Check the node type of every node selected.
 
         var node_type = node.type(all_nodes[i])
-        
-
-        
-        // The name you want to show for the node 
-        
-        var node_name_type = "LS_TRANSPARENCY"
-        
-        
-        // Allows to change the type of node by "FADE", "COMPOSITE", "READ"... (For the read node it has to be set up the column association and the elementid thing.)
-        
-        var type_of_node = "FADE"
-        
+        var node_parent = node.parentNode(all_nodes[i])
         
         // Trace the type of the selectednodes to be able to know if there was an error with any specific node or to see if there is any node in another path than the rest.
         
         MessageLog.trace(node_type)
-        //There is a problem with the loop doing that all the nodes pass at the same time.
         MessageLog.trace(all_nodes[i])
         
         
@@ -83,7 +82,7 @@ function node_creator(){
             new_coordY = coordY +50
             
 
-            //Creates the nodes out of the parent node, the name of the node, the type and the coordenates. 
+            //Creates the nodes taking as source: the parent node, the name of the node, the type and the coordenates. 
             
             node.add(node_parent, final_name, type_of_node, coordX, new_coordY, 0)
             
