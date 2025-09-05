@@ -11,7 +11,8 @@
             "type": "PEG",
             "x": 100,
             "y": 10
-        }{
+        }
+        ,{
             "name": "compo",
             "type": "COMPOSITE",
             "x": 200,
