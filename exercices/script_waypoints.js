@@ -30,7 +30,7 @@ function waypoints_above(){
         //MessageBox.information("the position is: " + position)
         //var paPath = node.dstNode(sNode, 0, 0)
         
-        if (Math.floor(nWidth) !== nWidth){
+        if (nWidth != Math.floor(nWidth)){
             nWidth = nWidth + 10
         }else{
 
@@ -69,5 +69,8 @@ function get_node_type(){
 function add_backdrop(){
     var i
     var sNode = selection.selectedNodes()
-    selection.addBackdropToSelection(sNode, i)
+    var back_node = node.subnodes(sNode)
+    selection.addBackdropToSelection(sNode, back_node)
+
+
 }

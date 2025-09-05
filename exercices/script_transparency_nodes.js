@@ -16,16 +16,14 @@ function node_creator(){
 
     var all_nodes = selection.selectedNodes()
     var count = all_nodes.length
-    
-
-
-
+    var node_type = []
+    const types_acc = ["READ", "COMPOSITE"]
     // Allows to change the type of node by "FADE", "COMPOSITE", "READ"... (For the read node it has to be set up the column association and the elementid thing.)
         
     var type_of_node = "FADE"
 
     
-    // The name you want to show for the node 
+    // The name you want to show for the node.
         
     var node_name_type = "LS_TRANSPARENCY"
 
@@ -38,28 +36,30 @@ function node_creator(){
 
         // Check the node type of every node selected.
 
-        var node_type = node.type(all_nodes[i])
+        node_type.push(node.type(all_nodes[i]))
         var node_parent = node.parentNode(all_nodes[i])
         
+
         // Trace the type of the selectednodes to be able to know if there was an error with any specific node or to see if there is any node in another path than the rest.
         
         MessageLog.trace(node_type)
         MessageLog.trace(all_nodes[i])
         
-        
-        
-        
-        if (node_type[i] = "READ"){
+
+        // checks for each node type if it's inside the list, if it's not inside it brakes the loop.
+
+        if (types_acc.indexOf(node_type[i]) != -1){
+            
             
             
             // Creates an undo action.
-
+            MessageLog.trace(node_type)
             scene.beginUndoRedoAccum("Loop node creation.")
             
-
+            
             // Create a transparency node set up. (The type of the node is "FADE") (And the values need to be <transparency val="50" defaultValue="50"/>)
             
-            // Creates a personalized name for the transparency nodes in case the name 
+            // Creates a personalized name for the transparency nodes in case the name.
             
             var final_name
             
@@ -76,22 +76,23 @@ function node_creator(){
             
             // Create the coordenates for each node.
             
-            coordX = node.coordX(all_nodes[i])
-            coordY = node.coordY(all_nodes[i])
+            const coordX = node.coordX(all_nodes[i])
+            const  coordY = node.coordY(all_nodes[i])
             
-            new_coordY = coordY +50
+            var new_coordY = coordY + 100
             
-
+            
             //Creates the nodes taking as source: the parent node, the name of the node, the type and the coordenates. 
             
             node.add(node_parent, final_name, type_of_node, coordX, new_coordY, 0)
             
+            // Links the new node to the source node.
             
-            selection.clearSelection(all_nodes)
-
-            var created_node = selection.addNodeToSelection(final_name)
+            var created_node = node_parent + "/" + final_name
             node.link(all_nodes[i], 0, created_node, 0)
             
+
+            // Trace the name of the node and the path.
             MessageLog.trace(final_name)
             MessageLog.trace(created_node)
             
@@ -115,22 +116,27 @@ function node_creator(){
                 node.link(created_node, all_nodes[i])
                 
                 }*/
-                
             
-            
-            scene.endUndoRedoAccum()
-            //There is a problem with the node selection. the value it returns is false, so it's not selecting any node.
-            
-                
         }else{
             
             
-            // Warning in case the selected node is not a drawing or a composite.
             
-            MessageBox.information("Plese, select Drawing or composite nodes.")
-            MessageLog.trace("Wrong node type or missing selection.")
+            
+               
+               
+               // Warning in case the selected node is not a drawing or a composite.
+               
+               MessageBox.information("Plese, select Drawing or composite nodes.")
+               MessageLog.trace("Wrong node type or missing selection.")
+               MessageLog.trace(node_type[i])
+               
+               break
+               
+               //There is a problem with the node selection. the value it returns is false, so it's not selecting any node.
+               
         }
-    
-        
+            
+        scene.endUndoRedoAccum()
+            
     }        
 }
