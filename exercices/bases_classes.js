@@ -1,4 +1,4 @@
-function class_demo(){
+function create_nodes_from_json(_path){
 
     var file = new File("C:/Users/LE SOCLE/Documents/GitHub/FormationScriptingHarmony/exercices/fiche_perso_dnd.json")
     file.open(FileAccess.ReadOnly)

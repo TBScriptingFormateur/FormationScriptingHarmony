@@ -8,4 +8,5 @@ echo.%script_path%
 %harmony_exe% -batch %xstage_path% -compile  %script_path% 
 
 
+
 :: "C:\Users\LE SOCLE\Documents\GitHub\FormationScriptingHarmony\exercices\execute_script.bat" "C:\Users\LE SOCLE\Documents\changeme\changeme.xstage" "C:\Users\LE SOCLE\Documents\GitHub\FormationScriptingHarmony\exercices\mon_script_en_batch.js"
