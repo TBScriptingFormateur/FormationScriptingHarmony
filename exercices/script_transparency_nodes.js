@@ -15,15 +15,14 @@ function node_creator(){
     // Variables for the whole scene.
 
     var all_nodes = selection.selectedNodes()
-    var count = selection.numberOfNodesSelected(all_nodes)
-    // var node_type = node.type(all_nodes)
+    var count = all_nodes.length
     var node_parent = node.parentNode(all_nodes)
     var new_count = all_nodes.length
 
     MessageLog.trace("there is " + count + " nodes selected.")
-    MessageLog.trace("there is " + new_count + " nodes selected.")
     
-    for( var i = 0 ; i < count ; i++){
+    
+    for ( var i = 0 ; i < count ; i++){
 
         
         // Check the node type of every node selected.
@@ -51,77 +50,78 @@ function node_creator(){
         
         
         
-        if (node_type = "READ"){
+        if (node_type[i] = "READ"){
+            
             
             // Creates an undo action.
+
             scene.beginUndoRedoAccum("Loop node creation.")
             
+
             // Create a transparency node set up. (The type of the node is "FADE") (And the values need to be <transparency val="50" defaultValue="50"/>)
             
-            for(var i = 0; i < count; i++ ){
+            // Creates a personalized name for the transparency nodes in case the name 
+            
+            var final_name
+            
+            if (i < 1){
                 
+                final_name = node_name_type
                 
+            }else{
                 
-                // Creates a personalized name for the transparency nodes in case the name 
+                final_name = node_name_type + "_" + i
                 
-                var final_name
-                
-                if (i < 1){
-                    
-                    final_name = node_name_type
-                    
-                }else{
-                    
-                    final_name = node_name_type + "_" + i
-                    
-                }
-                
-                
-                // Create the coordenates for each node.
-                
-                coordX = node.coordX(all_nodes[i])
-                coordY = node.coordY(all_nodes[i])
-                
-                new_coordY = coordY -50
-                
-                
-                //Creates the nodes. 
-                
-                node.add(node_parent, final_name, type_of_node, coordX, new_coordY, 0)
-                
-                selection.clearSelection(all_nodes)
-
-                var created_node = selection.addNodeToSelection(final_name)
-                node.link(all_nodes[i], 0, created_node, 0)
-
-                MessageLog.trace(created_node)
-                
-                // if the node is linked, link the transparency node between the node that is linked to.
-                
-                /* if (node.isLinked(all_nodes[i]) == true){
-                    
-                
-                // Unlinks the original link and links the new node between the two linked nodes.
-                
-                node.unlink(my_node_dest,0)
-                node.link(all_node[i], 0, transparency_node, 0)
-                node.link(transparency_node, 0, destination_node, 0)
-                
-                // find the node port to be able to link it in the same space.
-                
-                }else{
-                    
-                    
-                    created_node = selection.addNodeToSelection(final_name)
-                    node.link(created_node, all_nodes[i])
-                    
-                    }*/
-                   
-                
-                
-                scene.endUndoRedoAccum()
-                //There is a problem with the node selection. the value it returns is false, so it's not selecting any node.
             }
+            
+            
+            // Create the coordenates for each node.
+            
+            coordX = node.coordX(all_nodes[i])
+            coordY = node.coordY(all_nodes[i])
+            
+            new_coordY = coordY +50
+            
+
+            //Creates the nodes out of the parent node, the name of the node, the type and the coordenates. 
+            
+            node.add(node_parent, final_name, type_of_node, coordX, new_coordY, 0)
+            
+            
+            selection.clearSelection(all_nodes)
+
+            var created_node = selection.addNodeToSelection(final_name)
+            node.link(all_nodes[i], 0, created_node, 0)
+            
+            MessageLog.trace(final_name)
+            MessageLog.trace(created_node)
+            
+            // if the node is linked, link the transparency node between the node that is linked to.
+            
+            /* if (node.isLinked(all_nodes[i]) == true){
+                
+            
+            // Unlinks the original link and links the new node between the two linked nodes.
+            
+            node.unlink(my_node_dest,0)
+            node.link(all_node[i], 0, transparency_node, 0)
+            node.link(transparency_node, 0, destination_node, 0)
+            
+            // find the node port to be able to link it in the same space.
+            
+            }else{
+                
+                
+                created_node = selection.addNodeToSelection(final_name)
+                node.link(created_node, all_nodes[i])
+                
+                }*/
+                
+            
+            
+            scene.endUndoRedoAccum()
+            //There is a problem with the node selection. the value it returns is false, so it's not selecting any node.
+            
                 
         }else{
             
