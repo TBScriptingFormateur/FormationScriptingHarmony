@@ -46,7 +46,7 @@ function node_creator(){
         
         
         
-        if (node_type == "READ" || node_type == "COMPOSITE"){
+        if (node_type = "READ"){
             
             // Creates an undo action.
             scene.beginUndoRedoAccum("Loop node creation.")
@@ -61,7 +61,7 @@ function node_creator(){
                 
                 var final_name
                 
-                if (i = 0){
+                if (i < 1){
                     
                     final_name = node_name_type
                     
@@ -109,6 +109,8 @@ function node_creator(){
                 
                 
                 scene.endUndoRedoAccum()
+                var created_node = selection.addNodeToSelection(final_name)
+                node.link(all_nodes[i], 0, created_node, 0)
             }
                 
         }else{
