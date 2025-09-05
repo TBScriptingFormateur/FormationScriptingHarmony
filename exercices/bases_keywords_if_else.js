@@ -53,4 +53,43 @@ function input_user (){
  // MessageLog.trace("Ne souhaite pas répondre")
   }
 
+  
+}function tousLesNodesRead () {
+
+    selection.clearSelection()
+
+    var myDialog = new Dialog();
+    
+    myDialog.title = "Select Nodes By Type";
+    
+    var userInput = new ComboBox();
+    
+    userInput.label = "Select Node Type"
+
+    userInput.editable = true;
+
+    userInput.itemList = ["READ", "COMPOSITE", "PEG", "WRITE", "DISPLAY"];
+
+    // ajouter user Input dans la fenetre de dialogue
+    myDialog.add(userInput)
+
+    
+    if ( myDialog.exec() ){
+        
+        var result = userInput.currentItem
+        
+        MessageLog.trace(result)
+
+        var list = node.getNodes([result])
+    
+        var nbNodes = list.length
+
+    
+        selection.addNodesToSelection(list)
+    
+        MessageBox.information("Bravo, vous avez sélectionné " + nbNodes + " " + userInput.currentItem +"(s)")
+
+    }
+
+
 }
