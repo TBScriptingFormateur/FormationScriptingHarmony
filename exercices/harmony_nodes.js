@@ -37,6 +37,7 @@ function add_10_x(){
 function align_nodes_horizontaly(){
 
     const list_node = selection.selectedNodes()
+    MessageLog.trace(list_node)
     const first_node = selection.selectedNodes()[0]
     var node_x_first = node.coordX(first_node)
     var node_y_first = node.coordY(first_node)

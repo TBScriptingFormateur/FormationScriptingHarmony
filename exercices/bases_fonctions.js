@@ -81,7 +81,7 @@ function basic_return_value(){
         const msg = _B+_A+_B
         return msg
     }
-    var message_avc_keur = inlove(inlove(inlove(inlove("rigging","😻"))))
+    var message_avc_keur = inlove("rigging","❤️‍🔥")
     MessageBox.information(message_avc_keur)
     
 
@@ -109,10 +109,10 @@ function variable_scope_1 (){
         var chiffre = "2"
     
         function multiplier(_multiplicateur){
-            chiffre = chiffre +_multiplicateur
+            chiffre = chiffre *_multiplicateur
         }
     
-        ajoute_une_lettre("*2")
+        MessageBox.information(multiplier("2"))
 
     
 
