@@ -5,3 +5,7 @@ function bouton_test() {
 }
 
 
+function transformationSwitch_exp(){
+    var SelectedTransSwitch =selection.selectedNode(0)
+    MessageLog.trace(JSON.stringify(SelectedTransSwitch))
+}
