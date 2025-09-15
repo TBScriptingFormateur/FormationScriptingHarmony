@@ -4,28 +4,7 @@ function bouton_test() {
     RenameTransformationBySubstitution()
 }
 
-function getAttributes(attribute, attributeList)
-{
-  attributeList.push(attribute);
-  var subAttrList = attribute.getSubAttributes();
-  for (var j = 0; j < subAttrList.length; ++j)
-  {
-    if(typeof(subAttrList[j].keyword()) === 'undefined' || subAttrList[j].keyword().length == 0)
-      continue;
-    getAttributes(subAttrList[j], attributeList);
-  }
-}
-function getFullAttributeList(_nodePath)
-{
-    _nodePath = selection.selectedNode(0)
-  var attributeList = [];
-  var topAttributeList = node.getAttrList(_nodePath, 1);
-  for (var i = 0; i < topAttributeList.length; ++i)
-  {
-    getAttributes(topAttributeList[i], attributeList);
-  }
-  return attributeList;
-}
+
 
 
 function outputTransformationNames() {
